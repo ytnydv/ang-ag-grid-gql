@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Logo</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="btn btn-danger" (click)="onLogout()">Logout</a>
+    </li>
+
+  
+  </ul>
+</nav>
+<div class="card mt-4">
+  <h4 class="card-header">
+    You're logged in with Angular 8 & Basic HTTP Authentication!! and AG Grid GraphQL  </h4>
+  <div class="card-body">
+    <h6>Users from secure api end point</h6>
+    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+    <ul *ngIf="users">
+      <!-- <li *ngFor="let user of users">{{user.userid | json}}</li> -->
+      <li *ngFor="let user of users">{{ user.userid }}</li>
+    </ul>
+  </div>
+</div>
+<div class="test-header">
+  Page Size:
+  <select (change)="selectValue = ( $event.target.value || null );onPageSizeChanged(selectValue)" id="page-size">
+    <option value="10" selected="">10</option>
+    <option value="100">100</option>
+    <option value="500">500</option>
+    <option value="1000">1000</option>
+  </select>
+  <strong>Select Value</strong>: {{ selectValue | json }}<br />
+</div>
+<div style="height: 100%; padding-top: 26px; box-sizing: border-box;">
+  <ag-grid-angular
+    #agGrid
+    style="width: 100%; height: 60vh;"
+    id="myGrid"
+    class="ag-theme-balham"
+    [gridOptions]="gridOptions"
+    [defaultColDef]="defaultColDef"
+    [animateRows]="true"
+    [debug]="false"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+  ></ag-grid-angular>
+</div>

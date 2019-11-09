@@ -1,0 +1,50 @@
+[
+   {
+      "name": "defaulter",
+      "type": "mysql",
+      "host": "remotemysql.com",
+      "port": 3306,
+      "username": "Hv5OLEFBZ6",
+      "password": "mJ9F8VrVux",
+      "database": "Hv5OLEFBZ6",
+      "synchronize": false,
+      "entities": [
+         "src/entity/**/*.ts"
+      ],
+      "migrations": [
+         "src/migration/**/*.ts"
+      ],
+      "subscribers": [
+         "src/subscriber/**/*.ts"
+      ],
+      "cli": {
+         "entitiesDir": "src/entity",
+         "migrationsDir": "src/migration",
+         "subscribersDir": "src/subscriber"
+      }
+   },
+   {
+      "name": "default",
+      "type": "mysql",
+      "host": "localhost",
+      "port": 3306,
+      "username": "testuser",
+      "password": "testpass",
+      "database": "test_db",
+      "synchronize": false,
+      "entities": [
+         "src/entity/**/*.ts"
+      ],
+      "migrations": [
+         "src/migration/**/*.ts"
+      ],
+      "subscribers": [
+         "src/subscriber/**/*.ts"
+      ],
+      "cli": {
+         "entitiesDir": "src/entity",
+         "migrationsDir": "src/migration",
+         "subscribersDir": "src/subscriber"
+      }
+   }
+]
